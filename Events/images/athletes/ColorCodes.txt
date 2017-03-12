@@ -1,0 +1,19 @@
+Volleyball--0cf274
+Tt--8781f2
+Throwba1l-9bef07
+Snooker--41a552
+Football-- f75454
+Squash-- 3e7eff
+Tennis--5cc6be
+8ball-00cfff
+Lifting- 9d50ef
+
+Carroms-- ffb000
+Kabaddi-- 54d816
+Hockey-- ff3939
+Duothlon-- 69ff7b
+Cricket-- b0ffec
+Chess-- d3d3d3
+Bodybuilding--5cc6be
+Basketball- -ff9b48
+Badminton-- bf7f8b

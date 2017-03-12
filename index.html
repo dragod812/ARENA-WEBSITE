@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ARENA 2017</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+        <link rel="icon" type="image/png" href="./favicons/icon.png"/>
+        <link rel="manifest" href="favicons/manifest.json">
+        <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#08979a">
+        <link rel="shortcut icon" href="favicons/favicon.ico">
+        <meta property=og:type content=website/>
+        <meta property=og:url content="http://www.bits-arena.com"/>
+        <meta property=og:title content="Arena 2017"/>
+        <meta
+            property=og:description
+            content="Sports have always been one of the primary channels used by man to quench his thirst for competition, as well as promote camaraderie and unity among participants and fans alike. It is the spirit of the game that urges man to dream, push his limits, and achieve glory. Once a year, here at BITS Pilani Hyderabad Campus, we allow this spirit to entirely consume us as we host our annual sports fest, Arena. Arena is one of the biggest sporting festivals conducted in India. The preparation ahead of the fest is grueling, the buildup intense, and participation nothing short of mind blowing as we welcome competitors not only from Telangana and Andhra Pradesh but on a national level as well. This year we plan on hosting the 5th edition of Arena, Arena '17. Keeping up with the ambitions and expectations from a campus such as ours, we are envisioning an Arena bigger, grander and more thrilling than ever before. Join us as we compete to the edge of our capabilities, vie for glory on the field and most importantly, enjoy the game."/>
+        <meta property=og:image content="http://www.bits-arena.com/app/images/userfiles/logo.png"/>
+        <meta name="msapplication-TileColor" content="#16171a">
+        <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+        <meta name="msapplication-config" content="favicons/browserconfig.xml">
+        <meta name="theme-color" content="#18e28f">
+
+        <!-- build:css ../styles/lib.css -->
+        <!-- bower:css-->
+        <link rel="stylesheet" href="bower_components/normalize.css/normalize.css"/>
+        <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css"/>
+        <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css"/>
+        <!-- endbower-->
+        <!-- endbuild -->
+
+        <!-- build:css ../styles/app.css -->
+        <!-- inject:css-->
+
+        <link rel="stylesheet" href="app/css/stylesc4ca.css?1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- endinject-->
+        <!-- endbuild -->
+
+        <!-- build:js ../scripts/vendor/modernizr.js -->
+        <style>
+            canvas {
+                z-index: 0;
+                pointer-events: all;
+                display: block;
+                height: 100%;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+
+            #control-panel {
+                display: none;
+                background: rgba(0,0,0,.75);
+                border: 1px solid #333;
+                right: 20px;
+                padding: 10px 15px;
+                position: absolute;
+                bottom: 20px;
+                z-index: -2;
+            }
+
+        </style>
+        <style>
+            @-webkit-keyframes badbounce {
+                0%,
+                100% {
+                    -webkit-transform: translateY(0px);
+                }
+                10% {
+                    -webkit-transform: translateY(6px);
+                }
+                30% {
+                    -webkit-transform: translateY(-4px);
+                }
+                70% {
+                    -webkit-transform: translateY(3px);
+                }
+                90% {
+                    -webkit-transform: translateY(-2px);
+                }
+            }
+            @-moz-keyframes badbounce {
+                0%,
+                100% {
+                    -moz-transform: translateY(0px);
+                }
+                10% {
+                    -moz-transform: translateY(6px);
+                }
+                30% {
+                    -moz-transform: translateY(-4px);
+                }
+                70% {
+                    -moz-transform: translateY(3px);
+                }
+                90% {
+                    -moz-transform: translateY(-2px);
+                }
+            }
+            @keyframes badbounce {
+                0%,
+                100% {
+                    -webkit-transform: translateY(0px);
+                    -moz-transform: translateY(0px);
+                    -ms-transform: translateY(0px);
+                    -o-transform: translateY(0px);
+                    transform: translateY(0px);
+                }
+                10% {
+                    -webkit-transform: translateY(6px);
+                    -moz-transform: translateY(6px);
+                    -ms-transform: translateY(6px);
+                    -o-transform: translateY(6px);
+                    transform: translateY(6px);
+                }
+                30% {
+                    -webkit-transform: translateY(-4px);
+                    -moz-transform: translateY(-4px);
+                    -ms-transform: translateY(-4px);
+                    -o-transform: translateY(-4px);
+                    transform: translateY(-4px);
+                }
+                70% {
+                    -webkit-transform: translateY(3px);
+                    -moz-transform: translateY(3px);
+                    -ms-transform: translateY(3px);
+                    -o-transform: translateY(3px);
+                    transform: translateY(3px);
+                }
+                90% {
+                    -webkit-transform: translateY(-2px);
+                    -moz-transform: translateY(-2px);
+                    -ms-transform: translateY(-2px);
+                    -o-transform: translateY(-2px);
+                    transform: translateY(-2px);
+                }
+            }
+
+            .ss_animate {
+                -webkit-animation: badbounce 1s linear;
+                -moz-animation: badbounce 1s linear;
+                animation: badbounce 1s linear;
+            }
+
+            #ss_menu {
+                bottom: 30px;
+                width: 60px;
+                height: 60px;
+                color: #fff;
+                position: fixed;
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+                right: 30px;
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+            }
+
+            #ss_menu > .menu {
+                display: block;
+                position: absolute;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                text-align: center;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+                color: #fff;
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+            }
+
+            #ss_menu > .menu .share {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                transform: rotate(180deg);
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+            }
+
+            #ss_menu > .menu .share .circle {
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #000;
+                top: 50%;
+                margin-top: -6px;
+                left: 12px;
+                opacity: 1;
+            }
+            #ss_menu > .menu .share .circle:after,
+            #ss_menu > .menu .share .circle:before {
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+                content: '';
+                opacity: 1;
+                display: block;
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #000;
+            }
+            #ss_menu > .menu .share .circle:after {
+                left: 20.78461px;
+                top: 12.0px;
+            }
+            #ss_menu > .menu .share .circle:before {
+                left: 20.78461px;
+                top: -12.0px;
+            }
+
+            #ss_menu > .menu .share .bar {
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+                width: 24px;
+                height: 3px;
+                background: #000;
+                position: absolute;
+                top: 50%;
+                margin-top: -1.5px;
+                left: 18px;
+                -webkit-transform-origin: 0 50%;
+                -moz-transform-origin: 0 50%;
+                -ms-transform-origin: 0 50%;
+                -o-transform-origin: 0 50%;
+                transform-origin: 0 50%;
+                -webkit-transform: rotate(30deg);
+                -moz-transform: rotate(30deg);
+                -ms-transform: rotate(30deg);
+                -o-transform: rotate(30deg);
+                transform: rotate(30deg);
+            }
+            #ss_menu > .menu .share .bar:before {
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease;
+                transition: all 1s ease;
+                content: '';
+                width: 24px;
+                height: 3px;
+                background: #000;
+                position: absolute;
+                left: 0;
+                -webkit-transform-origin: 0 50%;
+                -moz-transform-origin: 0 50%;
+                -ms-transform-origin: 0 50%;
+                -o-transform-origin: 0 50%;
+                transform-origin: 0 50%;
+                -webkit-transform: rotate(-60deg);
+                -moz-transform: rotate(-60deg);
+                -ms-transform: rotate(-60deg);
+                -o-transform: rotate(-60deg);
+                transform: rotate(-60deg);
+            }
+
+            #ss_menu > .menu .share.close .circle {
+                opacity: 0;
+            }
+
+            #ss_menu > .menu .share.close .bar {
+                top: 50%;
+                margin-top: -1.5px;
+                left: 50%;
+                margin-left: -12px;
+                -webkit-transform-origin: 50% 50%;
+                -moz-transform-origin: 50% 50%;
+                -ms-transform-origin: 50% 50%;
+                -o-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-transform: rotate(405deg);
+                -moz-transform: rotate(405deg);
+                -ms-transform: rotate(405deg);
+                -o-transform: rotate(405deg);
+                transform: rotate(405deg);
+            }
+            #ss_menu > .menu .share.close .bar:before {
+                -webkit-transform-origin: 50% 50%;
+                -moz-transform-origin: 50% 50%;
+                -ms-transform-origin: 50% 50%;
+                -o-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-transform: rotate(-450deg);
+                -moz-transform: rotate(-450deg);
+                -ms-transform: rotate(-450deg);
+                -o-transform: rotate(-450deg);
+                transform: rotate(-450deg);
+            }
+
+            #ss_menu > .menu.ss_active {
+                background: #00796B;
+                -webkit-transform: scale(0.7);
+                -moz-transform: scale(0.7);
+                -ms-transform: scale(0.7);
+                -o-transform: scale(0.7);
+                transform: scale(0.7);
+            }
+
+            #ss_menu > div {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+                text-align: center;
+                background: #00796B;
+                border-radius: 50%;
+                display: table;
+            }
+
+            #ss_menu > div i {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            #ss_menu > div:hover {
+                background: #009688;
+                cursor: pointer;
+            }
+            #ss_menu div:nth-child(1) {
+                top: 0;
+                left: -160px;
+            }
+            #ss_menu div:nth-child(2) {
+                top: -80.0px;
+                left: -138.56406px;
+            }
+            #ss_menu div:nth-child(3) {
+                top: -138.56406px;
+                left: -80.0px;
+            }
+            #ss_menu div:nth-child(4) {
+                top: -160px;
+                left: 0.0px;
+            }
+
+        </style>
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+
+        <div id="control-panel">
+
+            <label>Trails:
+            </label>
+            <input type="checkbox" id="trail" name="trail" checked/>
+            <button id="clear">Clear</button>
+
+        </div>
+
+
+        <div class="p-wr">
+            <div class="mob-menu js-mob-menu">
+                <div class="mob-menu__inner">
+                    <div class="mob-menu__top">
+                        <button class="btn-burger _close js-mob-menu-close" type="button">
+                            <i></i>
+                        </button>
+                    </div>
+                    <div class="mob-menu__items">
+                        <ul>
+                            <li>
+                                <a class="js-goto-btn _mob" data-href="2" href="#!">about</a>
+                            </li>
+                            <li>
+                                <a class="js-goto-btn _mob" data-href="3" href="#!">contact us</a>
+                            </li>
+                            <li>
+                                <a class="js-goto-btn _mob" target="_blank" href="./Events">Events</a>
+                            </li>
+                            <li>
+                                <a class="js-goto-btn _mob" target="_blank" href="./Registration">Registration</a>
+                            </li>
+                            <li>
+                                <a class="js-goto-btn _mob" target="_blank" href="./2016">2016</a>
+                            </li>
+                        </ul>
+                    </div >
+                </div>
+            </div>
+            <div class="page-wr">
+                <header class="header wrapper js-header">
+                    <div class="header__logo js-header-logo">
+                        <button class="logo js-goto-btn" type="button" data-href="1">
+                            <span>Home</span>
+                        </button>
+                    </div>
+
+                    <div class="header__menu">
+                        <button id="open-button" class="btn-burger _menu js-menu-btn" type="button">
+                            <i></i>
+                        </button>
+                    </div>
+                </header>
+                <div class="pages">
+
+                    <div class="page page-1 active">
+
+                        <div class="page__part page__full">
+                            <div class="page__content">
+                                <canvas id="c"></canvas>
+                                <div class="preloader">
+                                    <svg viewBox="0 0 400 400" class="preloader__start">
+                                        <linearGradient id="SVGID_11_" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="200" y2="100">
+                                            <stop offset="0.1916" style="stop-color:#16171A"/>
+                                            <stop offset="0.2264" style="stop-color:#172622"/>
+                                            <stop offset="0.2932" style="stop-color:#194D37"/>
+                                            <stop offset="0.3852" style="stop-color:#1C8C5A"/>
+                                            <stop offset="0.498" style="stop-color:#20E289"/>
+                                            <stop offset="0.5" style="stop-color:#20E48A"/>
+                                        </linearGradient>
+                                        <path fill="url(#SVGID_11_)" d="M2,200H0C0,89.7,89.7,0,200,0v2C90.8,2,2,90.8,2,200z"/>
+                                    </svg>
+                                    <svg class="preloader__svg" viewBox="0 0 400 400">
+                                        <path class="preloader__circle" d="M200,0 a200,200 0 0,1 0,400 a200,200 0 0,1 0,-400"/>
+                                        <path class="preloader__circle-2" d="M200,-56 a256,256 0 0,1 0,512 a256,256 0 0,1 0,-512"/>
+                                        <path class="preloader__circle-3" d="M200,-115 a315,315 0 0,1 0,630 a315,315 0 0,1 0,-630"/>
+                                        <path class="preloader__progress" d="M200,1 a199,199 0 0,1 0,398 a199,199 0 0,1 0,-398"/>
+                                    </svg>
+
+                                    <div class="rotater">
+                                        <div class="rotater__marker"></div>
+                                    </div>
+                                </div>
+
+                                <div class="central-nav">
+                                    <div class="central-nav__desc" style="padding-right: 22px;"></div>
+
+                                    <div class="central-nav__plane-cont">
+                                        <div class="central-nav__rotating-plane"></div>
+                                    </div>
+
+                                    <div class="central-nav__items">
+                                        <div class="central-nav__item central-nav__item-1">
+                                            <svg class="central-nav__item-dot js-goto-btn" data-href="2">
+                                                <circle class="central-nav__item-circle_outer" r="12.5" cx="7.5" cy="7.5"/>
+                                                <circle class="central-nav__item-circle_inner" r="7.5" cx="7.5" cy="7.5"/>
+                                            </svg>
+                                            <span class="central-nav__item-text">About</span>
+                                        </div>
+
+                                        <div class="central-nav__item central-nav__item-2">
+                                            <svg class="central-nav__item-dot js-goto-btn" data-href="3">
+                                                <circle class="central-nav__item-circle_outer" r="12.5" cx="7.5" cy="7.5"/>
+                                                <circle class="central-nav__item-circle_inner" r="7.5" cx="7.5" cy="7.5"/>
+                                            </svg>
+                                            <span class="central-nav__item-text">Contact Us</span>
+                                        </div>
+                                        <div class="central-nav__item central-nav__item-3">
+                                            <svg class="central-nav__item-dot js-goto-btn" data-href="6">
+                                                <circle class="central-nav__item-circle_outer" r="12.5" cx="7.5" cy="7.5"/>
+                                                <circle class="central-nav__item-circle_inner" r="7.5" cx="7.5" cy="7.5"/>
+                                            </svg>
+                                            <span class="central-nav__item-text">
+                                                <a href="/Registration" target="_blank" style="color: white">Register</a>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id='ss_menu'>
+                                    <div onclick="location.href='https://www.facebook.com/bits.arena/'" target="_blank">
+                                        <i class="fa fa-facebook-official"></i>
+                                    </div>
+                                    <div onclick="location.href='https://twitter.com/BITS_Arena'" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </div>
+                                    <div onclick="location.href='https://www.youtube.com/watch?v=LDzTeCmaVc8&list=PL0T3OGjA2UySAd-of4h4uk892dMwTFkFK'" target="_blank">
+                                        <i class="fa fa-youtube"></i>
+                                    </div>
+                                    <div onclick="location.href='https://www.instagram.com/bits_arena/'" target="_blank">
+                                        <i class="fa fa-instagram"></i>
+                                    </div>
+                                    <div class='menu' >
+                                        <div class='share' id='ss_toggle' data-rot='180'>
+                                            <div class='circle'></div>
+                                            <div class='bar'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page page-2">
+                        <div class="page__part page__half page__half--left">
+                            <div class="page__content"></div>
+                        </div>
+
+                        <div class="page__part page__half page__half--right">
+                            <div class="page__content">
+                                <div class="about__body-inner">
+                                    <!-- <div class="title-block"><span>1.</span></div> -->
+                                    <div class="about__body-desc">
+                                        <p style="color:white;font-size:18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The National sports fest of BITS Pilani Hyderabad Campus is a wonderful brew of dazzling talent, burning passion with a hint of ruthlessness. Since its inception
+                                            in 2013, Arena has been growing larger and more intense with the passing years. From 26<sup>th</sup>
+                                            to 29<sup>th</sup>
+                                            January, teams will play their heart out on the field, as ARENA promises 4 days of non-stop action and adrenaline, culminating in glory only for the worthy! Come, show your worth in a battle of skill and desire. Join us as we celebrate sporting
+                                            culture in all its glory, opponents on the field, but united in the love of the game. Bring your A-game, because we promise you, the home team will. Once you are on the field, it is he who wants it the most who will succeed. It is the grit and the
+                                            passion that will get you that extra inch, that inch you need to succeed. It is your skill that will instil fear and respect for you in your opponent’s heart. Once you are on the field, nothing else matters. This, is where legends are born.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page page-3">
+                        <div class="page__part page__half page__half--left">
+                            <div class="page__content">
+                                <div class="if-slider__body js-if-slider">
+                                    <div class="if-slide sl_0 js-if-slide _active">
+                                        <div class="if-slide__inner">
+
+                                            <div class="if-slide__desc">
+                                                <p>
+                                                    <h2>Dhairya Patel</h2>
+                                                </p>
+                                                <p>
+                                                    <h2>+91-7997030005</h2>
+                                                </p>
+                                                <br>
+                                                <p>
+                                                    <h2>Juhi Sharma</h2>
+                                                </p>
+                                                <p>
+                                                    <h2>+91-7997030006</h2>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="if-slide sl_1 js-if-slide">
+                                        <div class="if-slide__inner">
+                                            <p>
+                                                <h2>
+                                                    <center>Kapil Bishnoi</center>
+                                                </h2>
+                                            </p>
+                                            <p>
+                                                <h2>
+                                                    <center>+91-9700829329</center>
+                                                </h2>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="if-slide sl_2 js-if-slide">
+                                        <div class="if-slide__inner">
+                                            <p>
+                                                <h2>
+                                                    <center>Ravi Kumanduri</center>
+                                                </h2>
+                                            </p>
+                                            <p>
+                                                <h2>
+                                                    <center>+91-9553314284</center>
+                                                </h2>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page__part page__half page__half--right">
+                            <div class="page__content">
+                                <div class="feat-wr">
+                                    <div class="title-block">
+
+                                        <h2>Contact Us</h2>
+                                    </div>
+                                    <div class="if-slider__head">
+                                        <div class="if-slider__head--inner">
+                                            <button class="if-slider__btn js-if-slider-btn _active" data-id="0">Sports Secretary</button>
+                                            <button class="if-slider__btn js-if-slider-btn" data-id="1">Publicity and Public Relations</button>
+                                            <button class="if-slider__btn js-if-slider-btn" data-id="2">Sponsorship and Marketing</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page page-6">
+                        <div class="page__part page__half page__half--left">
+                            <div class="page__content">
+                                <div class="last-page__circles last-page__circles--left">
+                                    <div class="last-page__bg-cont">
+                                        <div class="last-page__bg"></div>
+                                    </div>
+                                    <svg class="last-page__circles-svg" viewBox="0 0 200 400">
+                                        <path class="last-page__circle last-page__circle-1" d="M200,400 a200,200 0 0,1 0,-400"/>
+                                        <path class="last-page__circle last-page__circle-2" d="M200,456 a256,256 0 0,1 0,-512"/>
+                                        <path class="last-page__circle last-page__circle-3" d="M200,515 a315,315 0 0,1 0,-630"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page__part page__half page__half--right">
+                            <div class="page__content">
+                                <div class="last-page__circles last-page__circles--right">
+                                    <svg class="last-page__circles-svg" viewBox="0 0 200 400">
+                                        <path class="last-page__circle last-page__circle-1" d="M0,0 a200,200 0 0,1 0,400"/>
+                                        <path class="last-page__circle last-page__circle-2" d="M0,-56 a256,256 0 0,1 0,512"/>
+                                        <path class="last-page__circle last-page__circle-3" d="M0,-115 a315,315 0 0,1 0,630"/>
+                                    </svg>
+                                </div>
+                                <div class="index-try__inner">
+                                    <div class="title-block">
+                                        <h2>Subscribe</h2>
+                                    </div>
+                                    <form id="contact-form" class="ih-form wrapper" action="#" method="POST">
+                                        <div id="thank-you" class="thank-you">Thank you! You have successfully subscribed.</div>
+                                        <div class="form-row">
+                                            <input type="text" class="input-one" name="name" required placeholder="Your name" id="name">
+                                            <div class="inp-dis"></div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <input type="email" class="input-one" name="email" required placeholder="Your email" id="email">
+                                            <div class="inp-dis"></div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <input type="text" class="input-one" name="phone" required placeholder="Your phone" id="phonenum">
+                                            <div class="inp-dis"></div>
+                                        </div>
+
+                                        <button id="btn-contact-form" class="btn btn--green btn--try-form" type="submit">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer js-footer">
+                    <div class="footer__inner wrapper">
+                        <div class="f-copy">
+                            <span>© ARENA 2017</span>
+
+                        </div>
+                    </div>
+                </footer>
+
+                <div class="overlay js-ic-popup-close"></div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('#imageid').on('click', function() {
+                $(this).width(1000);
+            });
+        });
+    </script>
+    <script>
+        var g__options = {
+            url: './app/_html/index.php',
+            breakWidth: 992,
+            preloader: {
+                animTime: 1.5,
+                planeFlyAnimTime: 0.7
+            }
+        };
+    </script>
+
+    <script src="app/_html/scripts.min.js"></script>
+    <script src="app/_html/jquery.validate.min.js"></script>
+    <script src="app/_html/jquery.form.min.js"></script>
+    <script>
+        app = (function($) {
+            var app = {
+                send: function() {
+
+                    $('#contact-form').validate({
+                        rules: {
+                            name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            email: {
+                                required: true,
+                                email: true,
+                                minlength: 6
+                            },
+                            phone: {
+                                required: true,
+                                minlength: 10
+                            }
+                        },
+                        messages: {
+                            name: {
+                                required: "Required!",
+                                minlength: "Must be at least 2 characters!"
+                            },
+                            email: {
+                                required: "Required!",
+                                email: "Invalid email!",
+                                minlength: "Must be at least 6 characters!"
+                            },
+                            phonenum: {
+                                required: "Required!",
+                                minlength: "There must be at least 10 characters!"
+                            }
+                        }
+                    });
+
+                    $('#btn-contact-form').on('click', function() {
+
+                        var form = $('#contact-form');
+
+                        if (!form.valid()) {
+                            return false;
+                        }
+
+                        name = $("#name").val();
+                        email = $("#email").val();
+                        phone = $("#phonenum").val();
+
+                        $('#contact-form').ajaxSubmit({
+                            url: './subscribe.php',
+                            iframe: true,
+                            dataType: 'json',
+                            data: {
+                                email: email,
+                                name: name,
+                                phone: phone
+                            },
+                            error: function() {
+                                alert('Oops! Some error occured!');
+                            },
+                            success: function(response) {
+                                status = response.status;
+                                message = response.message;
+                                if (status == 200) {
+                                    $('form')[0].reset();
+                                    $('#thank-you').show();
+                                } else if (status == 400)
+                                    alert('Email already registered with us!');
+                                else
+                                    alert('Oops! Some error occured.');
+                                }
+                            });
+
+                        return false;
+                    });
+                }
+            };
+
+            return app;
+        })(jQuery);
+
+        var $ = jQuery.noConflict();
+        $(document).ready(function() {
+            app.send();
+        });
+    </script>
+    <script>
+        $(document).ready(function(ev) {
+            var toggle = $('#ss_toggle');
+            var menu = $('#ss_menu');
+            var rot;
+
+            $('#ss_toggle').on('click', function(ev) {
+                rot = parseInt($(this).data('rot')) - 180;
+                menu.css('transform', 'rotate(' + rot + 'deg)');
+                menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
+                if ((rot / 180) % 2 == 0) {
+                    //Moving in
+                    toggle.parent().addClass('ss_active');
+                    toggle.addClass('close');
+                } else {
+                    //Moving Out
+                    toggle.parent().removeClass('ss_active');
+                    toggle.removeClass('close');
+                }
+                $(this).data('rot', rot);
+            });
+
+            menu.on('transitionend webkitTransitionEnd oTransitionEnd', function() {
+                if ((rot / 180) % 2 == 0) {
+                    $('#ss_menu div i').addClass('ss_animate');
+                } else {
+                    $('#ss_menu div i').removeClass('ss_animate');
+                }
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol
+                ? 'https://ssl'
+                : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+
+<script src="js/index.js"></script>
+<!-- Mirrored from smartsms.nikoland.ru/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Oct 2016 20:41:14 GMT -->
+</html>
